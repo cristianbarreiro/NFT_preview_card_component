@@ -24,6 +24,8 @@
     --body-bg: var(--blue-950);
     --card-bg: var(--blue-900);
     --line: var(--blue-800);
+    --card-border: rgba(255,255,255,0.06);
+    --card-shadow: 0 8px 24px rgba(2,12,27,0.55);
 }
 
 body {
@@ -40,9 +42,17 @@ body {
     padding: 1rem;
     background: var(--card-bg);
     border-radius: 0.5rem;
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
+    transition: transform 180ms ease, box-shadow 180ms ease;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(2,12,27,0.65);
 }
 
 .card h4 {
