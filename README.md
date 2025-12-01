@@ -1,56 +1,87 @@
-# Frontend Mentor - NFT preview card component
+# NFT preview card component — Solución Frontend Mentor
 
-![Design preview for the NFT preview card component coding challenge](preview.jpg)
+Este repositorio contiene mi implementación de la tarjeta de vista previa NFT del reto de Frontend Mentor.
 
-## Welcome! 👋
+Enlaces
+- Página de la solución en Frontend Mentor: https://www.frontendmentor.io/solutions/nft-preview-card-component-O8ZcjBWPTA
+- Demo desplegado en Vercel: https://nft-preview-card-component-delta-five.vercel.app/
 
-Thanks for checking out this front-end coding challenge.
+Descripción breve
+-----------------
+Componente responsive (HTML + CSS) que reproduce el diseño del reto: tarjeta con imagen principal, título, descripción, fila de precio/tiempo y sección del creador con avatar. Está construida con un enfoque mobile-first y variables CSS (`:root`) para tokens de color y tipografía.
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+Características implementadas
+-----------------------------
+- Variables CSS en `:root` basadas en el `style-guide.md` (colores primarios y neutrales, tamaños y tipografías).
+- Fuente `Outfit` integrada (actualmente mediante `@import` en `styles/styles.css`).
+- Layout mobile-first y responsivo; puntos de diseño considerados: 375px (móvil) y 1440px (desktop).
+- Tarjeta (`.card`) estilizada con: fondo, borde sutil, sombra moderna, esquinas redondeadas y efecto de elevación en hover.
+- Interacción de la imagen: overlay de color cian y aparición del icono central (`.eye-icon`) al hacer hover.
+- Fila de precio y tiempo con íconos (`icon-ethereum.svg`, `icon-clock.svg`) y separación correcta.
+- Sección del creador: avatar circular con borde blanco y texto secundario de menor tamaño (variable `--small-font-size`).
+- Ajustes tipográficos (base en 18px) y utilidades para contrastes y accesibilidad visual.
+- Ajustes de espaciado: márgenes y `gap` para que el título `Equilibrium #3429` tenga la misma separación superior/inferior con respecto a la imagen.
 
-**To do this challenge, you need a basic understanding of HTML and CSS.**
+Archivos clave
+-------------
+- `index.html` — marcado de la tarjeta y referencia a los estilos.
+- `styles/styles.css` — variables de diseño, reglas del componente y utilidades.
+- `style-guide.md` — especificaciones del desafío (paleta de color, pesos tipográficos, tamaños de diseño).
+- `images/` — todos los assets usados en la tarjeta (imagen principal, avatar, iconos, favicon).
 
-## The challenge
+Cómo ejecutar localmente
+------------------------
+Abrir `index.html` directamente funciona, pero para servir archivos estáticos de forma simple:
 
-Your challenge is to build out this preview card component and get it looking as close to the design as possible.
+```bash
+# desde la raíz del proyecto
+python3 -m http.server 8000
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+# Abrir en el navegador:
+http://localhost:8000
+```
 
-Your users should be able to:
+O usando `live-server`, `http-server` u otras utilidades similares.
 
-- View the optimal layout depending on their device's screen size
-- See hover states for interactive elements
+Decisiones de implementación
+---------------------------
+- Uso de variables CSS: centralizan los tokens de color y tipografía para facilitar ajustes posteriores.
+- Import de la tipografía: `@import` en el CSS por simplicidad; para producción recomiendo moverlo a un `<link rel="stylesheet">` en el `<head>` de `index.html` para mejor rendimiento.
+- Sombra y borde de la tarjeta: se añadieron variables `--card-border` y `--card-shadow` para conseguir un aspecto moderno y reutilizable.
+- Accesibilidad: se cuidó la relación de color para texto sobre el fondo de la tarjeta; no obstante es recomendable ejecutar una auditoría (Lighthouse / axe) para comprobar contraste y foco de teclado.
 
-Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+Problemas y aprendizajes
+------------------------
+- Afinar el espaciado vertical entre la imagen y el título requirió ajustar el `margin-bottom` del `h4` para que la separación superior e inferior fuese consistente con el `gap` del contenedor.
+- Trabajar con imágenes y overlays llevó a usar pseudo-elementos (`::before`) y animaciones de opacidad para mantener el HTML limpio.
 
-## Where to find everything
+Mejoras pendientes (opcional)
+-----------------------------
+- Mover la carga de la fuente a un `<link>` en `index.html`.
+- Añadir estilos de foco (keyboard) para la interactividad (ej. al tabular hasta el icono de vista).
+- Añadir un pequeño script para abrir una vista modal con la imagen al hacer clic en el icono de vista.
+- Añadir pruebas visuales o snapshots para validar cambios de estilo.
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+Licencia y créditos
+-------------------
+Este proyecto es la solución de un reto público de Frontend Mentor. Los recursos de imagen y los iconos provienen de la carpeta `images/` incluida en el reto.
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+Contacto / Demo
+----------------
+- Frontend Mentor solution: https://www.frontendmentor.io/solutions/nft-preview-card-component-O8ZcjBWPTA
+- Demo en Vercel: https://nft-preview-card-component-delta-five.vercel.app/
 
-If you would like the Figma design file to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+- Mi usuario en Frontend Mentor: `@cristianbarreiro`
+- Mi usuario en GitHub: `@cristianbarreiro`
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+Si quieres, puedo:
+- añadir capturas (`preview.jpg`) y colocarlas en el README,
+- cambiar `@import` por una etiqueta `<link>` en `index.html` y actualizarlo aquí,
+- o preparar el deploy en GitHub Pages además de la versión en Vercel.
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+---
 
-## Building your project
-
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
-
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
-
-## Deploying your project
-
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
-
-- [GitHub Pages](https://pages.github.com/)
+Gracias — dime si quieres que traduzca este README al inglés o que lo haga más corto para la descripción del repositorio.
 - [Vercel](https://vercel.com/)
 - [Netlify](https://www.netlify.com/)
 
